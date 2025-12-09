@@ -101,7 +101,7 @@ search.addEventListener('click',function(event){
 });
 
 function getinfo(city){
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=281ac50e5bcf4d95b6a125913253011&q=${city}&days=1&aqi=yes&alerts=yes`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key={put yout key here}=${city}&days=1&aqi=yes&alerts=yes`)
 
     .then(response =>response.json())
     .then(data => { ;
@@ -167,6 +167,7 @@ function changebackground(){
     const image=weatherImages[environment];
 
     document.body.style.backgroundImage=image;
+
 
 
 }
