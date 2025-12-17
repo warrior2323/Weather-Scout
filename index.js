@@ -64,7 +64,7 @@ logo.src="./weather.png.png"
 logo.id="logo-img"
 
 aboutDetails.append(aboutText,logo)
-aboutText.innerText="This Weather Dashboard allows you to check current weather status for any city around the globe. Built using HTML, CSS and JavaScript & many hours 😮‍💨"
+aboutText.innerText="This Weather Application allows you to get the info of the weather of any place around the world. It is built in HTML , CSS and Javascript. "
 
 
 const footer=document.getElementById("footer")
