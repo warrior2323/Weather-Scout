@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather Scout</title>
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bruno+Ace+SC&family=Exo:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bruno+Ace+SC&family=Exo:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&family=Stack+Sans+Notch:wght@200..700&family=Trade+Winds&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bruno+Ace+SC&family=Exo:ital,wght@0,100..900;1,100..900&family=Jersey+10&family=Science+Gothic:wght@100..900&family=Stack+Sans+Notch:wght@200..700&family=TikTok+Sans:opsz,wght@12..36,300..900&family=Trade+Winds&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bruno+Ace+SC&family=Exo:ital,wght@0,100..900;1,100..900&family=Geo:ital@0;1&family=Jersey+10&family=Science+Gothic:wght@100..900&family=Stack+Sans+Notch:wght@200..700&family=TikTok+Sans:opsz,wght@12..36,300..900&family=Trade+Winds&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bruno+Ace+SC&family=Exo:ital,wght@0,100..900;1,100..900&family=Geo:ital@0;1&family=Jersey+10&family=Science+Gothic:wght@100..900&family=Solway:wght@300;400;500;700;800&family=Stack+Sans+Notch:wght@200..700&family=TikTok+Sans:opsz,wght@12..36,300..900&family=Trade+Winds&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Boldonse&family=Bruno+Ace+SC&family=Exo:ital,wght@0,100..900;1,100..900&family=Geo:ital@0;1&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Jersey+10&family=Science+Gothic:wght@100..900&family=Solway:wght@300;400;500;700;800&family=Stack+Sans+Notch:wght@200..700&family=TikTok+Sans:opsz,wght@12..36,300..900&family=Trade+Winds&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <button class="up" onClick="window.scroll(0,0)"><i class="fa-solid fa-arrow-up "></i></button>
+        <nav class="navbar">
+            <ul class="navlist">
+                <li><a href="#search" onClick="window.scroll(0,0)">Search</a></li>
+                <li id="details-btn"><a href="#details">details</a></li>
+                <li><a href="#footer">About</a></li>
+
+            </ul>
+            <div class="search-items">
+            <input type="text" placeholder="Type the city name and hit enter....." class="search" id="box" >
+            <button class="search-button"><img src="search.png" class="search-box"></button>
+            </div>
+            <button id="login-button">Login</button>
+            <div id="not-login">
+            <span id="greeting"> </span>
+            <button id="logout-button">Logout</button>
+            </div>
+
+
+        </nav>
+
+        <div id="login-box" class="login">
+            <div class="login-content">
+                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                <h1 style="font-family:google sans">Welcome Back!</h1>
+                <form id="login-form">
+                    <input type="text" placeholder="Username" id="username-input">         
+                    <input type="text" placeholder="Email" id="email-input">
+                    <input type="password" placeholder="Password" id="password-input"> <br>
+                    <button id="submit">Submit</button> 
+                            
+                </form>
+                <br>
+                <span>Haven't signed up?</span>
+                <button id="sign-up">Sign Up</button>               
+            </div>
+        </div>
+
+
+        <section class="front">
+        <h1>Weather Scout</h1>
+        <div>Know about the weather around you</div>
+        </section>
+        <p id ="error"></p>
+
+
+
+        <section id="details">
+
+
+            
+
+
+
+        </section>
+        <section id="about">
+            <h1 id="heading">About this App!</h1>
+            <section id="about-details">
+
+            </section>
+        </section>
+        <footer id="footer">
+            <div id="social"></div>
+            <div id="terms"></div>
+        </footer>
+        <script src="index.js" type="module"></script>
+        
+    </body>
+</html>
