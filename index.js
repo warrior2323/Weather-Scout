@@ -90,7 +90,7 @@ copyRight.innerText="Copyright Information"
 const terms=document.getElementById("terms")
 terms.append(condition,privacy,copyRight)
 const rights=document.createElement('p')
-rights.innerText="© 2025 WeatherInfo. All rights reserved."
+rights.innerText="© 2025 WeatherScout. All rights reserved."
 rights.id="rights"
 footer.append(rights)
 
