@@ -103,7 +103,7 @@ const logoutBox=document.getElementById("not-login")
 const signupBtn=document.getElementById("sign-up")
 const userNameForm=document.getElementById("username-input")
 const closeBtn=document.querySelector(".close-btn")
-
+const list=document.querySelector(".history-list");
 
 closeBtn.addEventListener("click",(e)=>{
     loginBox.style.display="none";
@@ -114,9 +114,12 @@ loginBtn.addEventListener('click',function(event){
 })
 
 logoutBtn.addEventListener('click',(e)=>{
+    localStorage.removeItem("currentUser");
     logoutBox.style.display="None";
     loginBtn.style.display="block";
     userNameForm.style.display="none";
+    list.style.display="none";
+
 })
 
 signupBtn.addEventListener("click",(e)=>{
@@ -148,6 +151,7 @@ loginForm.addEventListener('submit',(e)=>{
         localStorage.setItem("currentUser",email);
         updateUI(userName);
         loginBox.style.display="none";
+        showhistory();
         document.getElementById("email-input").value=""
         document.getElementById("password-input").value=""
         document.getElementById("username-input").value=""
@@ -167,6 +171,7 @@ loginForm.addEventListener('submit',(e)=>{
             localStorage.setItem("currentUser",email)
             updateUI(storedUserName);
             loginBox.style.display="none";
+            showhistory();
         document.getElementById("email-input").value=""
         document.getElementById("password-input").value=""
         document.getElementById("username-input").value=""
@@ -204,7 +209,73 @@ function updateUI(userName){
 
 }
 
+function sethistory(city){
 
+    const email=localStorage.getItem("currentUser");
+    if(!email) return 
+    const storedData=JSON.parse(localStorage.getItem(email));
+    const history=storedData.history;
+    
+    if(!history.includes(city)){
+        history.push(city);
+        storedData.history=history;
+        localStorage.setItem(email, JSON.stringify(storedData));
+    }
+}
+
+function showhistory(){
+    const email=localStorage.getItem("currentUser");
+    if(!email) return ;
+//the item which is stored in browser's local storage is stored in the form of string so parse is used to convert the string back into an object.
+
+    const storedData=JSON.parse(localStorage.getItem(email));
+    if(!storedData) return;
+
+
+    const history=storedData.history;
+
+    list.innerHTML=""
+    list.style.display="block";
+    let count=0;
+    
+    history.forEach((city)=>{
+        count++;
+        if(count===6){
+            return;
+        }
+        const tag=document.createElement("button");
+        tag.className='list-button'
+        tag.innerText=city;
+        const cross=document.createElement("i");
+        cross.className="fa-solid fa-xmark";
+        cross.style.cursor="pointer";
+
+        cross.onclick=(e)=>{
+            e.stopPropagation();//this will prvent the getinfo function to execute as when i click the tag the button is also automatically clicked.
+            tag.remove();
+            deletehistory(city);
+           
+        }
+
+        tag.onclick=()=>{
+            getinfo(city);
+            box.value=city;
+        };
+        list.appendChild(tag);
+        tag.appendChild(cross);
+
+        
+    })
+}
+function deletehistory(cityToDelete){
+    const email=localStorage.getItem("currentUser");
+    const storedData=JSON.parse(localStorage.getItem(email));
+    
+    storedData.history=storedData.history.filter(city => city!=cityToDelete);
+
+    localStorage.setItem(email,JSON.stringify(storedData));
+
+}
 
 box.addEventListener('keydown',function(event){
 
@@ -224,9 +295,6 @@ search.addEventListener('click',function(event){
         const city=box.value;
 
         details.scrollIntoView({behavior:'smooth'});
-
-
-
 
         getinfo(city);
 
@@ -261,12 +329,13 @@ function getinfo(city){
         }
         else{         
                       err.style.display='none';
-            
+                      sethistory(city);       
+                      showhistory();      
                       console.log(data.location.name)
                       cityName.innerText=city.charAt(0).toUpperCase()+city.slice(1);
                       state.innerText=data.location.region+' , '+data.location.country;
                       time.innerText=data.location.localtime;
-                      temp.innerText=Math.round(data.current.temp_c)+' C';
+                      temp.innerHTML=Math.round(data.current.temp_c)+`25\u00B0C`
                       feel.innerText= "Feels like "+Math.round(data.current.feelslike_c)+ 'C'+ ". "+data.current.condition.text+" sky.";
                       humidity.innerText='Humidity: ' +data.current.humidity +'%';
                       windSpeed.innerText=data.current.wind_mph+' mph';

@@ -287,6 +287,7 @@ body{
     border-radius:25px;
     border-color: white;
     color:white;
+    cursor: pointer;
 }
 
 #logout-button{
@@ -298,7 +299,8 @@ body{
     width:100px;
     border-radius:25px;
     border-color: white;
-    color:white;    
+    color:white; 
+    cursor: pointer;    
 }
 
 .login{
@@ -403,6 +405,7 @@ body{
 .close-btn:hover i {
     color: black;          /* Turns White on Hover */
 }
+
 .up{
     position:fixed;
     bottom:15px;
@@ -415,10 +418,53 @@ body{
     background-color: aqua;
 
 }
+
 .fa-arrow-up{
    color:white;
    font-size:1.6rem;
 
+}
+
+.history-list{
+    display:none;
+    position:absolute;
+    top:100px;
+    right:60%;
+    left:40%;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.list-button{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    height:30px;
+    width:200px;
+    text-align: left;
+    font-size: 20px;
+    background-color:black;
+    color:white;
+    border-radius:15px;
+    margin-top:5px;
+    border:none;
+    cursor:pointer;
+
+
+}
+.list-button:hover{
+    background-color: rgb(78, 78, 78);
+}
+
+
+.fa-xmark{
+    color:white;
+    font-size:1.0rem;
+    
+}
+.fa-xmark:hover{
+    color:red;
 }
 @media(max-width:768px){
     #cityn{
